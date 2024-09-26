@@ -1,0 +1,34 @@
+{% extends "myapp/base.html" %}
+
+{% block body %}
+
+<div class="container mt-4">
+    <div class="d-flex align-items-center justify-content-center">
+      <h2 style="text-align: center;margin-right: 20px;">Todo List</h2>
+      <a class="link" href="{% url 'create_todo' %}"> Add New </a>
+    </div>
+    
+        <div class="row">
+          {% for todo in todos %}
+            <div class="col-sm-3 mb-3 mb-sm-3">
+                <div class="card shadow">
+                  <div class="card-body">
+                    <h5 class="card-title">{{todo.title}}</h5>
+                    <p class="card-text">{{todo.description}}</p>
+                    <div class="mt-auto d-flex gap-2">
+                      <a href="{% url 'edit_todo' pk=todo.id %}" class="btn btn-primary btn-hover-highlight">EDIT</a>
+                      <form action="{% url 'delete_todo' pk=todo.id %}" method="post" >
+                        <button type="submit" class="btn btn-danger btn-hover-highlight">DELETE</button>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+    
+    </div>
+
+
+
+{% endblock %}
