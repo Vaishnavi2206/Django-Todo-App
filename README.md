@@ -37,8 +37,7 @@ Make sure you have the following installed:
 4. **Run database migrations:**
   ```bash
   python manage.py migrate
-
-5.  **Run the application:**
-
+  
+5. **Run the application:**
   ```bash
   python manage.py runserver
